@@ -1,0 +1,39 @@
+name: SLWaypoints
+main: io.github.slazurin.slwaypoints.SLWaypoints
+version: 1.2.0
+author: Azurin
+api-version: 1.16
+
+commands:
+  wp:
+    description: Teleport to a waypoint
+    permission-message: You do not have permission to use this command.
+    usage: /wp <waypoint_name>
+    permission: slwp.wp
+  setwp:
+    description: Set a new waypoint
+    permission-message: You do not have permission to use this command.
+    usage: /setwp <waypoint_name>
+    permission: slwp.setwp
+  debuginfo:
+    description: Check api data for SLWaypoint
+    permission-message: You do not have permission to use this command.
+    usage: /debuginfo
+    permission: slwp.debuginfo
+
+permissions:
+  slops.*:
+    default: op
+    children:
+      slops.wp: true
+      slops.setwp: true
+      slops.debuginfo: true
+  slops.wp:
+    description: Allows player to use the /wp command
+    default: true
+  slops.setwp:
+    description: Allows player to use the /setwp command
+    default: op
+  slops.debuginfo:
+    description: Check api data for SLWaypoint
+    default: op
