@@ -1,7 +1,6 @@
 package io.github.slazurin.slwaypoints.commands;
 
 import io.github.slazurin.slwaypoints.SLWaypoints;
-import io.github.slazurin.slwaypoints.commons.SLTabExecutor;
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
