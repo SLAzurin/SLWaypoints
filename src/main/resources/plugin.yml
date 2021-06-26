@@ -1,8 +1,8 @@
 name: SLWaypoints
 main: io.github.slazurin.slwaypoints.SLWaypoints
-version: 1.2.0
+version: 1.0.0
 author: Azurin
-api-version: 1.16
+api-version: 1.17
 
 commands:
   wp:
@@ -10,10 +10,20 @@ commands:
     permission-message: You do not have permission to use this command.
     usage: /wp <waypoint_name>
     permission: slwp.wp
+  wps:
+    description: Show available waypoints
+    permission-message: You do not have permission to use this command.
+    usage: /wps <page_number>
+    permission: slwp.wps
   setwp:
     description: Set a new waypoint
     permission-message: You do not have permission to use this command.
-    usage: /setwp <waypoint_name>
+    usage: /setwp <waypoint_name> <description>
+    permission: slwp.setwp
+  delwp:
+    description: Delete a waypoint
+    permission-message: You do not have permission to use this command.
+    usage: /delwp <waypoint_name>
     permission: slwp.setwp
   debuginfo:
     description: Check api data for SLWaypoint
@@ -22,18 +32,26 @@ commands:
     permission: slwp.debuginfo
 
 permissions:
-  slops.*:
+  slwp.*:
     default: op
     children:
       slops.wp: true
+      slops.wps: true
       slops.setwp: true
+      slops.delwp: true
       slops.debuginfo: true
-  slops.wp:
+  slwp.wp:
     description: Allows player to use the /wp command
     default: true
-  slops.setwp:
+  slwp.wps:
+    description: Allows player to use the /wps command
+    default: true
+  slwp.setwp:
     description: Allows player to use the /setwp command
     default: op
-  slops.debuginfo:
-    description: Check api data for SLWaypoint
+  slwp.delwp:
+    description: Allows player to use the /delwp command
+    default: op
+  slwp.debuginfo:
+    description: Allows player to use the /debuginfo command
     default: op

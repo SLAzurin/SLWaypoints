@@ -10,17 +10,15 @@ import org.jetbrains.annotations.Nullable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Wp implements TabExecutor {
+public class DelWp implements TabExecutor {
     private final SLWaypoints plugin;
-    public Wp(SLWaypoints plugin) {
+    public DelWp(SLWaypoints plugin) {
         this.plugin = plugin;
     }
 
     @Override
     public boolean onCommand(@NotNull CommandSender commandSender, @NotNull Command command, @NotNull String s, @NotNull String[] strings) {
-
-
-        return false;
+        return true;
     }
 
     @Override

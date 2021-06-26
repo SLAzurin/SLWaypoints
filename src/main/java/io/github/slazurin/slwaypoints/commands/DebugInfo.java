@@ -7,6 +7,7 @@ import org.bukkit.command.TabExecutor;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class DebugInfo implements TabExecutor {
@@ -17,7 +18,8 @@ public class DebugInfo implements TabExecutor {
 
     @Override
     public boolean onCommand(@NotNull CommandSender commandSender, @NotNull Command command, @NotNull String s, @NotNull String[] strings) {
-        return false;
+        commandSender.sendMessage("Debug info doesn't really show anything. everything is in /wps");
+        return true;
     }
 
     @Override
