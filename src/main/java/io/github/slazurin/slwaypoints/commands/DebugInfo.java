@@ -18,7 +18,7 @@ public class DebugInfo implements TabExecutor {
 
     @Override
     public boolean onCommand(@NotNull CommandSender commandSender, @NotNull Command command, @NotNull String s, @NotNull String[] strings) {
-        commandSender.sendMessage("Debug info doesn't really show anything. everything is in /wps");
+        commandSender.sendMessage("Debug info doesn't really show anything. Everything is in /wps");
         return true;
     }
 

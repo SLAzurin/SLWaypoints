@@ -26,11 +26,16 @@ public class SetWp implements TabExecutor {
             return false;
         }
 
-        if (strings.length < 1) {
+        if (strings.length < 1 || strings[0].length() == 0) {
             p.sendMessage(ChatColor.RED + "Don't forget the waypoint name!");
+            return false;
         }
         if (strings[0].contains(".")) {
             p.sendMessage(ChatColor.RED + "Cannot have period in name.");
+            return false;
+        }
+        if (this.plugin.getApi().wpExists(strings[0])) {
+            p.sendMessage(ChatColor.RED + strings[0] + " already exists.");
             return false;
         }
         this.setWp(p, strings);
@@ -40,7 +45,7 @@ public class SetWp implements TabExecutor {
 
     @Override
     public @Nullable List<String> onTabComplete(@NotNull CommandSender commandSender, @NotNull Command command, @NotNull String s, @NotNull String[] strings) {
-        return null;
+        return new ArrayList<>();
     }
 
     private void setWp(Player p, String[] args) {

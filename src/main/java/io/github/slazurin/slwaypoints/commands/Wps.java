@@ -36,7 +36,7 @@ public class Wps implements TabExecutor {
                 return false;
             }
         }
-        listWaypoints((Player) commandSender, page);
+        listWaypoints(commandSender, page);
 
         return true;
     }
@@ -50,7 +50,7 @@ public class Wps implements TabExecutor {
         return l;
     }
 
-    private void listWaypoints(Player p, int page) {
+    private void listWaypoints(CommandSender p, int page) {
         List<Waypoint> waypoints = this.plugin.getApi().getWaypoints();
         int waypointsPerPage = 15;
         int pageCount = waypoints.size() / waypointsPerPage;

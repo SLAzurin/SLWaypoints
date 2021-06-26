@@ -11,18 +11,13 @@ import java.util.logging.Level;
 
 public class WaypointsStore {
     private final SLWaypoints plugin;
-    private FileConfiguration cache;
+    private final FileConfiguration cache;
     private final File waypointsStore;
 
     public WaypointsStore(SLWaypoints plugin) {
         this.plugin = plugin;
         this.waypointsStore = new File(this.plugin.getDataFolder(), "waypoints.yml");
         this.createStoreIfNotExists();
-        this.cache = YamlConfiguration.loadConfiguration(this.waypointsStore);
-
-    }
-
-    public void reloadStore() {
         this.cache = YamlConfiguration.loadConfiguration(this.waypointsStore);
     }
 
@@ -40,8 +35,11 @@ public class WaypointsStore {
 
     private void createStoreIfNotExists() {
         if (!this.waypointsStore.exists()) {
-            this.waypointsStore.getParentFile().mkdirs();
-            this.plugin.saveResource("waypoints.yml", false);
+            if (this.waypointsStore.getParentFile().mkdirs()) {
+                this.plugin.saveResource("waypoints.yml", false);
+            } else {
+                this.plugin.getLogger().log(Level.SEVERE, "{0}Couldn't create plugin directory!", ChatColor.RED);
+            }
         }
     }
 }
